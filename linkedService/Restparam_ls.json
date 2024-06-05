@@ -1,0 +1,15 @@
+{
+	"name": "Restparam_ls",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "RestService",
+		"typeProperties": {
+			"url": "http://192.200.8.160:8088/system/webdev/Personal/STO_PO",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Basic",
+			"userName": "admin",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQEMxQ0U0OTNFLUQzNDItNDE3Mi04MDE3LTdBMDBCMkEwQjRBMl9jMDg5YzBiNC1lNTlhLTRmNDMtOWYxOS1jM2MxN2QxM2M3NjUiDQp9"
+		}
+	}
+}

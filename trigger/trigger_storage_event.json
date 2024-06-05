@@ -1,0 +1,25 @@
+{
+	"name": "trigger_storage_event",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "RestApi_copy_trigger",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/landing/blobs/Storage_event_trigger",
+			"blobPathEndsWith": "csv",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/983853c6-efb0-48a8-bcd7-909eb4b12d15/resourceGroups/RSC_GRP/providers/Microsoft.Storage/storageAccounts/testsrgacnt2145",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}

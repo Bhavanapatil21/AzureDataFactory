@@ -1,0 +1,24 @@
+{
+	"name": "trigger_schedule example",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "RestApi_copy_trigger",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 1,
+				"startTime": "2024-06-03T10:08:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}

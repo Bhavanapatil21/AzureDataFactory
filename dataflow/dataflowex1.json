@@ -1,0 +1,97 @@
+{
+	"name": "dataflowex1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DS_DL",
+						"type": "DatasetReference"
+					},
+					"name": "Dataflow21"
+				}
+			],
+			"sinks": [
+				{
+					"linkedService": {
+						"referenceName": "LS_DL",
+						"type": "LinkedServiceReference"
+					},
+					"name": "sink1",
+					"rejectedDataLinkedService": {
+						"referenceName": "LS_DL",
+						"type": "LinkedServiceReference"
+					}
+				}
+			],
+			"transformations": [
+				{
+					"name": "filteringcolumn1"
+				},
+				{
+					"name": "derivedColumn1"
+				},
+				{
+					"name": "select1"
+				},
+				{
+					"name": "aggregate1"
+				},
+				{
+					"name": "sort1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          SO_NO as string,",
+				"          SO_LINE_ITEM as integer,",
+				"          Material_code as string,",
+				"          Press as string,",
+				"          plant as string,",
+				"          Qty as short,",
+				"          Zone as string,",
+				"          Start_date as date,",
+				"          End_date as date,",
+				"          MRP_RUN as boolean,",
+				"          Planned_order as integer,",
+				"          Hold as integer,",
+				"          Hold_remarks as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> Dataflow21",
+				"Dataflow21 filter(Qty > 29) ~> filteringcolumn1",
+				"filteringcolumn1 derive(Flag = Hold == 0) ~> derivedColumn1",
+				"derivedColumn1 select(mapColumn(",
+				"          SO_NO,",
+				"          SO_LINE_ITEM,",
+				"          Material_code,",
+				"          Press,",
+				"          plant,",
+				"          Qty,",
+				"          Zone,",
+				"          MRP_RUN,",
+				"          Planned_order,",
+				"          Hold,",
+				"          Hold_remarks,",
+				"          Flag",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"select1 aggregate(groupBy(Press),",
+				"     maxqty = max(Qty)) ~> aggregate1",
+				"aggregate1 sort(desc(maxqty, true)) ~> sort1",
+				"sort1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'json',",
+				"     fileSystem: 'landing',",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
+			]
+		}
+	}
+}

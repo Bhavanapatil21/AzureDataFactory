@@ -1,0 +1,76 @@
+{
+	"name": "Pagination_ADLS_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_DL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "landing"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "SO_NO",
+				"type": "String"
+			},
+			{
+				"name": "SO_LINE_ITEM",
+				"type": "String"
+			},
+			{
+				"name": "Material_code",
+				"type": "String"
+			},
+			{
+				"name": "Press",
+				"type": "String"
+			},
+			{
+				"name": "plant",
+				"type": "String"
+			},
+			{
+				"name": "Qty",
+				"type": "String"
+			},
+			{
+				"name": "Zone",
+				"type": "String"
+			},
+			{
+				"name": "Start_date",
+				"type": "String"
+			},
+			{
+				"name": "End_date",
+				"type": "String"
+			},
+			{
+				"name": "MRP_RUN",
+				"type": "String"
+			},
+			{
+				"name": "Planned_order",
+				"type": "String"
+			},
+			{
+				"name": "Hold",
+				"type": "String"
+			},
+			{
+				"name": "Hold_remarks",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

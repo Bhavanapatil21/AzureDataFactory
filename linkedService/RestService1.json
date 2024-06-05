@@ -1,0 +1,13 @@
+{
+	"name": "RestService1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "RestService",
+		"typeProperties": {
+			"url": "https://script.googleusercontent.com/macros/echo?user_content_key=I2umi0Ro8nUfFxl8qdKhYLg3gZSroz-gPHkroSfMm3swKqsomjb5LCaN2h_Tv8YqJVc4YrHio8k4DSD_6TAex1mcsXm76s4Nm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnJEarsREAskuKHe4A-X8gsPi8KqNHX6_33e2Zh6kctsJ-iX0NCorfED6uny_kndX32ueSmUMxV-YDHQlliq-6V5Fk6FOlvrBYw&lib=MXSHAPlEDyAq2uPRCcMiZ63Ow4ZzbpCe7",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}

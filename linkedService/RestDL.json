@@ -1,0 +1,13 @@
+{
+	"name": "RestDL",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "RestService",
+		"typeProperties": {
+			"url": "https://api.openweathermap.org/data/2.5/weather?q=Gadag&appid=9bf1bf690cfa33451a399bc96c0acfe0",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
